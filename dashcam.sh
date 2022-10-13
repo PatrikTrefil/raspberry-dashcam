@@ -17,4 +17,4 @@ echo "Started at: $when" | tee --append "$LOG_FILE" 1>/dev/null
 
 # start recording; save to VIDEO_DIR and include timestamp in filename
 mkdir -p "$VIDEO_DIR"
-ffmpeg -i /dev/video0 "${VIDEO_DIR}${when}.mp4" &
+ffmpeg -f v4l2 -framerate 60 -video_size 1280x720 -input_format mjpeg -i /dev/video0 -c copy "${VIDEO_DIR}/${when}.mkv" &
