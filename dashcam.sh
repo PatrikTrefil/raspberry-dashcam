@@ -13,7 +13,7 @@ when="$(date '+%Y-%m-%d--%H-%M')"
 log_dir="$(dirname "$LOG_FILE")"
 mkdir -p "$log_dir"
 touch "$LOG_FILE"
-echo "Started at: $when" | tee "$LOG_FILE" 1>/dev/null
+echo "Started at: $when" | tee --append "$LOG_FILE" 1>/dev/null
 
 # start recording; save to VIDEO_DIR and include timestamp in filename
 mkdir -p "$VIDEO_DIR"
